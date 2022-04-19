@@ -1,0 +1,24 @@
+p{
+    margin: 0;
+    text-align: left;
+}
+.title{
+    font-weight: 600;
+    color: $textmain;
+}
+.info{
+    color: $textsecondary;
+}
+
+li{
+    padding: 1% 0% 1% 10%;
+    background-color: $textsearch;
+    width: 65%;
+    margin-left: 10%;
+}
+li:hover{
+    background: linear-gradient(90deg, rgba(228,29,39,1) 0%, rgba(184,29,36,1) 100%);
+    .info{
+        color: $textsearch;
+    }
+}

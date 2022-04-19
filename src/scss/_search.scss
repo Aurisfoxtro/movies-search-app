@@ -1,0 +1,16 @@
+input {
+    margin: 4% auto;
+    padding-left: 10%;
+    height: 40px;
+    width: 60%;
+    background: linear-gradient(90deg, rgba(250,70,80,1) 0%, rgba(204,96,101,1) 100%);
+    color: $textsearch;
+    border: none;
+}
+.movieIcon{
+    width: 4%;
+    position:absolute;
+    top: 37%;
+    left: 16%;
+    
+}
