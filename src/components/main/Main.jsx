@@ -14,7 +14,16 @@ function Main() {
 
   const handleInputChange = (e)=>{
     // console.log(e)
-    console.log(e.target.value)
+    // console.log(e.target.value)
+    setChosenMovie({
+      title: '',
+      rating: '',
+      year: '',
+      language: '',
+      votes: '',
+      overview: '',
+      image: ''
+    })
     setSearchTerm(e.target.value)
   }
    
@@ -23,11 +32,11 @@ function Main() {
       try{
       fetch(`https://api.themoviedb.org/3/search/movie?api_key=f81053f8495120bde8069d2bb86d703f&language=en-US&query=${searchTerm}`)
           .then(response=>response.json())
-          .then(data=>setAllMovies(data.results))
+          .then(data=>{setAllMovies(data.results); setSlicedMovies(allMovies.slice(0,8));})
       }catch(msg){
           console.log(msg)
       }
-      setSlicedMovies(allMovies.slice(0,8));
+      // setSlicedMovies(allMovies.slice(0,8));
     }else{
       setSlicedMovies([]);
     }
@@ -67,7 +76,7 @@ function Main() {
   return (
     <div className="container">
       <div className="search-box">
-        <Search onSearch={handleInputChange} val={searchTerm}/>
+        <Search onSearch={handleInputChange} val={chosenMovie.title ? chosenMovie.title : searchTerm}/>
         <ul>
           {(searchTerm.length > 2) && slicedMovies.map((movie,i) =>
           <Autocomplete 
